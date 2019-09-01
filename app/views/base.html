@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Def Ask</title>
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="/css/main.css">
+</head>
+<body>
+	<nav class="navbar navbar-default" role="navigation">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-offset-2 col-md-8">
+					<div class="navbar-header">
+						<a href="" class="navbar-brand titulo">DevAsk</a>
+					</div>
+					<ul class="nav navbar-nav navbar-right">
+						{% if not name %}
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="">
+                                    <strong>Menú</strong>
+                                    <span class="glyphicon glyphicon-chevron-down"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/auth/facebook">Log in with facebook</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="/auth/twitter">Log in with twitter</a></li>
+                                </ul>
+                            </li>
+                            
+                        {% else %}
+                            
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="">
+                                    <img src="{{ url_foto }}" alt="" width="32px" height="32px">
+                                    <strong>{{ name }}</strong>
+                                    <span class="glyphicon glyphicon-chevron-down"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/chat">Chat</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="/logout">Salir</a></li>
+                                </ul>
+                            </li>
+                        
+                        {% endif %}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</nav>
+	{% block content %}
+	{% endblock %}
+    
+	<script type="text/javascript" src="/js/jquery.js"></script>
+	<script type="text/javascript" src="/js/bootstrap.js"></script>
+	{% block js %}
+	{% endblock %}
+</body>
+</html>
